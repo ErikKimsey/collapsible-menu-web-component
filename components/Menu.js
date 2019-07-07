@@ -10,29 +10,29 @@ class Menu extends HTMLElement {
 		console.log(collapseItems);
 
 		container.innerHTML = `
-      <style>
-        .container {
-          width:300px;
-          display:flex;
-          flex-flow:column;
-          align-items:center;
-          border:solid 1px pink;
-        }
-      </style>
-      <div class="collapse-list">
-      ${collapseItems.map((e, i) => {
-			return e;
-		})}
-      </div>
+    <style>
+      .container {
+        position:absolute;
+        width:500px;
+        height:500px;
+        display:flex;
+        flex-flow:column;
+        justify-content: center;
+        align-items:space-around;
+        border:solid 1px pink;
+      }
+    
+    </style>
+    <div class="collapse-list">
+    </div>
     `;
+		shadow.appendChild(container);
 	}
+
 	get items() {
 		let items = [];
-		[ ...this.attributes ].forEach((attr) => {
-			console.log(attr);
-		});
-		console.log('items');
-		return [ ...this.attributes ];
+
+		return items;
 	}
 }
 
