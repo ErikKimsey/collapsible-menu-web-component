@@ -7,6 +7,8 @@ class Menu extends HTMLElement {
 
 		// append 'collapse-items' to shadow
 		const collapseItems = this.items;
+		console.log(collapseItems);
+
 		container.innerHTML = `
       <style>
         .container {
@@ -23,8 +25,14 @@ class Menu extends HTMLElement {
 		})}
       </div>
     `;
-
-    
+	}
+	get items() {
+		let items = [];
+		[ ...this.attributes ].forEach((attr) => {
+			console.log(attr);
+		});
+		console.log('items');
+		return [ ...this.attributes ];
 	}
 }
 
