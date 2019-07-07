@@ -1,0 +1,23 @@
+{
+  "name": "collapsiblemenu",
+  "version": "1.0.0",
+  "description": "Collapse Menu Web Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "Web",
+    "component",
+    "web-component",
+    "bloop",
+    "bleep",
+    "bloop"
+  ],
+  "author": "Erik Kimsey",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
