@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "nodemon --watch ./index.js ./index.html"
+    "start": "http-server ./ --cors -o"
   },
   "keywords": [
     "Web",
     "component",
     "web-component",
-    "bloop",
-    "bleep",
-    "bloop"
+    "collapsible menu",
+    "Silverchair",
+    "Erik Kimsey"
   ],
   "author": "Erik Kimsey",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "http-server": "^0.11.1"
   }
 }

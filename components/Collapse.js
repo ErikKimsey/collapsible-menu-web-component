@@ -1,9 +1,9 @@
-const template = document.createElement('template');
-template.innerHTML = `
+const collapseTemplate = document.createElement('template');
+collapseTemplate.innerHTML = `
 <style>
     :host {
-      width:200px;
-      height:200px;
+    width:200px;
+    height:200px;
     display: block;
     background-color: #000;
     color: white;
@@ -61,19 +61,15 @@ class Collapsible extends HTMLElement {
 	constructor() {
 		super();
 		this._shadowRoot = this.attachShadow({ mode: 'open' });
-		this._shadowRoot.appendChild(template.content.cloneNode(true));
-		console.log(this._shadowRoot);
+		this._shadowRoot.appendChild(collapseTemplate.content.cloneNode(true));
 
 		this.$subItemList = this._shadowRoot.querySelector('.content');
-		console.log(this.$subItemList);
 
 		this.$tab = this._shadowRoot.querySelector('.tab');
 		this.$tab.addEventListener('click', this._toggleCollapse.bind(this));
 	}
 
 	_toggleCollapse() {
-		console.log(this.$subItemList.classList);
-		// if(this.$subItemList.classList)
 		this.$subItemList.classList.toggle('active');
 	}
 
@@ -94,7 +90,7 @@ class Collapsible extends HTMLElement {
 	}
 }
 
-window.customElements.define('collapsible-list', Collapsible);
+customElements.define('collapsible-list', Collapsible);
 
 /**
  * <div class="content">
