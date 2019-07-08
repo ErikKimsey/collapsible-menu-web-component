@@ -1,28 +1,74 @@
-class Collapse extends HTMLElement {
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+    :host {
+      width:200px;
+      height:200px;
+    display: block;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    }
+
+    .tab {
+    border: none;
+    cursor: pointer;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #555;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+</style>
+<div class="tab">Tab</div>
+
+<div class="items">YOYOYO</div>
+`;
+
+class Collapsible extends HTMLElement {
 	constructor() {
 		super();
-		const shadow = this.attachShadow({ mode: 'open' });
-		const collapse = document.createElement('div');
-		collapse.classList.add('collapse-item');
+		this._shadowRoot = this.attachShadow({ mode: 'open' });
+		this._shadowRoot.appendChild(template.content.cloneNode(true));
+		console.log(this._shadowRoot);
 
-		const collapseItems = this.items;
-		console.log(collapseItems);
+		this.$subItemList = this._shadowRoot.querySelector('items');
+		this.$tab = this._shadowRoot.querySelector('tab');
+	}
 
-		collapseItems.innerHTML = `
-      <style>
-      
-        background-color:black;
-        border: solid 3px yellow;  
-      
-      </style>
-      <h1>${item.title}</h1>
-      ${item.subItems.map((sub) => {
-			return `<div>${sub}</div>`;
-		})}
-    
-    `;
-		shadow.appendChild(collapse);
+	connectedCallback() {
+		console.log('connected!');
+	}
+
+	disconnectedCallback() {
+		console.log('disconnected!');
+	}
+
+	attributeChangedCallback(name, oldVal, newVal) {
+		console.log(`Attribute: ${name} changed!`);
+	}
+
+	adoptedCallback() {
+		console.log('adopted!');
 	}
 }
 
-customElements.define('collapse-item', Collapse);
+window.customElements.define('collapsible-list', Collapsible);

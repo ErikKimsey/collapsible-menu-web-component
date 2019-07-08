@@ -1,38 +1,31 @@
 class Menu extends HTMLElement {
 	constructor() {
 		super();
-		const shadow = this.attachShadow({ mode: 'open' });
-		const container = document.createElement('div');
-		container.classList.add('container');
-
-		// append 'collapse-items' to shadow
-		const collapseItems = this.items;
-		console.log(collapseItems);
-
-		container.innerHTML = `
-    <style>
-      .container {
-        position:absolute;
-        width:500px;
-        height:500px;
-        display:flex;
-        flex-flow:column;
-        justify-content: center;
-        align-items:space-around;
-        border:solid 1px pink;
-      }
-    
-    </style>
-    <div class="collapse-list">
-    </div>
-    `;
-		shadow.appendChild(container);
+		this.shadow = this.attachShadow({ mode: 'open' });
+		this.container = document.createElement('div');
+		this.container.setAttribute('class', 'container');
 	}
 
-	get items() {
-		let items = [];
-
-		return items;
+	set menu(val) {
+		this.shadow.innerHTML = `
+      <style>
+      .container {
+        margin: 0 auto;
+        width:${val.width}px;
+        
+            height:${val.height}px;
+            display:flex;
+            flex-flow:column;
+            justify-content: center;
+            align-items:space-around;
+            border:solid 1px pink;
+          }
+      </style>
+      <h1>
+      ${val.say}
+      </h1>
+      `;
+		this.shadow.appendChild(this.container);
 	}
 }
 
