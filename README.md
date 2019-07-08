@@ -1,4 +1,4 @@
-# Dynamic Menu for SilverChair Code Challenge
+## Extensible Collapsing Menu (via Web Component APIs)
 ## by Erik Kimsey
 ### erikkimsey.com
 
