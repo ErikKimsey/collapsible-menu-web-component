@@ -9,7 +9,6 @@ template.innerHTML = `
     color: white;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
     border: none;
     text-align: left;
     outline: none;
@@ -30,9 +29,10 @@ template.innerHTML = `
       color:white;
       padding: 0 18px;
       height:0;
+      width:auto;
       overflow: hidden;
       background-color: #f1f1f1;
-      transition: all 0.2s ease-out;
+      transition: all 500ms ease-out;
     }
     a {
       color:white;
